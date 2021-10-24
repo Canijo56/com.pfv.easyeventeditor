@@ -1,5 +1,5 @@
 {
-  "name": "com.merlin.easyeventeditor",
+  "name": "com.pfv.easyeventeditor",
   "displayName": "Easy Event Editor",
   "version": "1.0.4",
   "unity": "2017.4",
@@ -8,7 +8,7 @@
   "category": "Productivity",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Merlin-san/EasyEventEditor.git"
+    "url": "https://github.com/Canijo56/EasyEventEditor.git"
   },
   "author": {
 	"name" : "Merlin"
