@@ -1,7 +1,9 @@
 {
     "name": "EasyEventEditor",
-    "references": [],
-    "optionalUnityReferences": [],
+    "rootNamespace": "",
+    "references": [
+        "GUID:69bc2ff46a561ab44965df7c1eac9c15"
+    ],
     "includePlatforms": [
         "Editor"
     ],
@@ -10,5 +12,7 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
