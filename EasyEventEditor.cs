@@ -439,7 +439,7 @@ namespace Merlin
 #else
 public class EasyEventEditorSettings : EditorWindow
 {
-    [MenuItem("Edit/Easy Event Editor Settings")]
+    [MenuItem("Tools/Easy Event Editor Settings")]
     static void Init()
     {
         EasyEventEditorSettings window = GetWindow<EasyEventEditorSettings>(false, "EEE Settings");
@@ -484,7 +484,13 @@ public class EasyEventEditorSettings : EditorWindow
         }
         private void DrawUIElementsIMGUI()
         {
+            EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedEvent, true);
+            if (EditorGUI.EndChangeCheck())
+            {
+                serializedEvent.serializedObject?.ApplyModifiedProperties();
+            }
+
         }
 
 
