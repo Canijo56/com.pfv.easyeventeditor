@@ -472,11 +472,11 @@ public class EasyEventEditorSettings : EditorWindow
     public class EasyEventField : BindableElement
     {
         IMGUIContainer _imguiContainer;
-        private SerializedProperty serializedEvent;
+        private SerializedObject serializedObject;
 
         public EasyEventField(SerializedProperty serializedEvent)
         {
-            this.serializedEvent = serializedEvent;
+            this.serializedObject = serializedEvent.serializedObject;
             IMGUIContainer iMGUIContainer = new IMGUIContainer(DrawUIElementsIMGUI);
             iMGUIContainer.AddToClassList("custom-unity-event");
             this.Add(iMGUIContainer);
@@ -484,11 +484,22 @@ public class EasyEventEditorSettings : EditorWindow
         }
         private void DrawUIElementsIMGUI()
         {
+            if (panel == null)
+            {
+                return;
+            }
+            // if (serializedEvent == null || serializedEvent.serializedObject == null || !serializedEvent.serializedObject.targetObject)
+            // return;
+            SerializedProperty property = serializedObject?.FindProperty(bindingPath);
+            if (property == null)
+            {
+                return;
+            }
             EditorGUI.BeginChangeCheck();
-            EditorGUILayout.PropertyField(serializedEvent, true);
+            EditorGUILayout.PropertyField(property, true);
             if (EditorGUI.EndChangeCheck())
             {
-                serializedEvent.serializedObject?.ApplyModifiedProperties();
+                property.serializedObject?.ApplyModifiedProperties();
             }
 
         }
